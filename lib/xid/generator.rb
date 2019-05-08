@@ -29,8 +29,8 @@ module Xid
       bytes[4]  = mid[0]
       bytes[5]  = mid[1]
       bytes[6]  = mid[2]
-      bytes[7]  = ((pid >> 8) % 256)
-      bytes[8]  = (pid % 128)
+      bytes[7]  = ((pid >> 8) % 0xff)
+      bytes[8]  = (pid % 0xff)
       bytes[9]  = (counter >> 16) & 0xff
       bytes[10] = (counter >> 8) & 0xff
       bytes[11] = counter & 0xff

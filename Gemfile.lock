@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    xid (0.1.0)
+    xid (0.1.1)
       base32
 
 GEM
