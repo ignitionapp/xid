@@ -1,14 +1,11 @@
 require 'digest'
 require 'socket'
 require 'singleton'
+require 'xid'
 
 module Xid
   class Generator
     include Singleton
-
-    ENCODING = '0123456789abcdefghijklmnopqrstuv'.freeze
-    RAW_LENGTH = 12
-    ENCODED_LENGTH = 20
 
     def initialize
       @rand_id = rand(0x10000)
@@ -29,8 +26,8 @@ module Xid
       bytes[4]  = mid[0]
       bytes[5]  = mid[1]
       bytes[6]  = mid[2]
-      bytes[7]  = ((pid >> 8) % 0xff)
-      bytes[8]  = (pid % 0xff)
+      bytes[7]  = ((pid >> 8) & 0xff)
+      bytes[8]  = (pid & 0xff)
       bytes[9]  = (counter >> 16) & 0xff
       bytes[10] = (counter >> 8) & 0xff
       bytes[11] = counter & 0xff
@@ -51,7 +48,7 @@ module Xid
     end
 
     def current_time
-      Time.now.to_i
+      Time.now.utc.to_i
     end
   end
 end
