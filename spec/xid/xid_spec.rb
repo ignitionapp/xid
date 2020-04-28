@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Xid
   RSpec.describe Xid do
     let!(:xids) { 10_000.times.map { described_class.new } }

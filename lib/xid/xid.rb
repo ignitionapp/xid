@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'xid'
 require 'xid/generator'
 require 'xid/error'

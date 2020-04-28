@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Xid
-  VERSION = '0.1.2'.freeze
+  VERSION = '0.1.3'
 end
